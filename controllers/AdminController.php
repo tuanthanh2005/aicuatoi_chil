@@ -1,10 +1,8 @@
-<?php
-
-class AdminController {
+class AdminController extends Controller {
     public function adminDashboard() {
         $settings = Setting::getAll();
         $products = Product::getAll();
-        include 'views/admin/dashboard.php';
+        $this->view('admin/dashboard', ['settings' => $settings, 'products' => $products]);
     }
 
     public function adminSaveSettings() {

@@ -1,6 +1,4 @@
-<?php
-
-class HomeController {
+class HomeController extends Controller {
     private $settings;
 
     public function __construct() {

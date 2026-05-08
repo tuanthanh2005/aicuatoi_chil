@@ -1,5 +1,4 @@
-<?php
-class Product {
+class Product extends Model {
     // Model mô phỏng việc lấy dữ liệu từ database
     public static function getAll() {
         return [

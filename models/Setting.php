@@ -1,6 +1,4 @@
-<?php
-
-class Setting {
+class Setting extends Model {
     private static $dataFile = __DIR__ . '/../data/settings.json';
 
     public static function getAll() {

@@ -1,26 +1,38 @@
 <?php
+session_start();
 
-// Require Models
+// Load Configuration
+require_once 'config/config.php';
+
+// Load Core Libraries
+require_once 'core/Database.php';
+require_once 'core/Controller.php';
+require_once 'core/Model.php';
+
+// Load Models
 require_once 'models/Product.php';
 require_once 'models/Setting.php';
 
-// Require Controllers
+// Load Controllers
 require_once 'controllers/HomeController.php';
 require_once 'controllers/AdminController.php';
 
-// Simple Routing
+// Routing
 $action = isset($_GET['action']) ? $_GET['action'] : 'index';
 
-// Determine which controller to use
+// Simple Route Map
 if (strpos($action, 'admin') === 0) {
-    $controller = new AdminController();
+    $controllerName = 'AdminController';
 } else {
-    $controller = new HomeController();
+    $controllerName = 'HomeController';
 }
+
+$controller = new $controllerName();
 
 if (method_exists($controller, $action)) {
     $controller->$action();
 } else {
+    http_response_code(404);
     echo "404 Not Found";
 }
 

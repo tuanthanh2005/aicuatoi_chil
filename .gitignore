@@ -1,0 +1,14 @@
+# Database & Sensitive
+config/config.php
+data/*.json
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
